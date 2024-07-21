@@ -1,0 +1,46 @@
+<ion-header>
+  <!-- Cabeçalho da página -->
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Botão de voltar, que navega para a página definida em defaultHref quando clicado -->
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <!-- Título da página -->
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Formulário de login -->
+  <form #form="ngForm" (ngSubmit)="onLogin(form)">
+    <!-- Campo de entrada para o email -->
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <!-- Campo de entrada do tipo email, com validação obrigatória e vinculação bidirecional usando ngModel -->
+      <ion-input type="email" name="email" ngModel required></ion-input>
+    </ion-item>
+    <!-- Campo de entrada para a senha -->
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <!-- Campo de entrada do tipo senha, com validação obrigatória e vinculação bidirecional usando ngModel -->
+      <ion-input type="password" name="senha" ngModel required></ion-input>
+    </ion-item>
+    <!-- Botão para enviar o formulário -->
+    <ion-button expand="full" type="submit">Login</ion-button>
+  </form>
+
+  <!-- Mensagens de sucesso e erro -->
+  <div *ngIf="mensagemLogin" class="mensagem-sucesso">
+    <!-- Mensagem de sucesso, exibida se a variável mensagemLogin estiver definida -->
+    {{mensagemLogin}} <!-- Elas não estão aparecendo ... depois resolvo isso -->
+  </div>
+
+  <div *ngIf="mensagemErro" class="mensagem-erro">
+    <!-- Mensagem de erro, exibida se a variável mensagemErro estiver definida -->
+    {{mensagemErro}}
+  </div>
+
+  <!-- Link para a página de registro -->
+  <p>Não tem uma conta? Faça o cadastro <a (click)="showRegistro()">Aqui</a></p>
+</ion-content>
+
