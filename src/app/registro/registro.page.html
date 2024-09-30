@@ -1,45 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <!-- Botão de voltar para a página anterior ou para a página inicial se nenhuma página anterior estiver disponível -->
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Registro</ion-title> <!-- Título da página de registro -->
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <!-- Formulário de registro com vinculação ao método 'enviando' no componente -->
   <form #f="ngForm" (ngSubmit)="enviando(f)"> 
     <!-- 'ngForm' é referenciado por #f para obter os dados do formulário -->
+    <ion-back-button defaultHref="/home"></ion-back-button>
     
-    <ion-item>
-      <!-- Campo para inserir o nome do usuário -->
-      <ion-label position="floating">Nome</ion-label>
-      <ion-input name="primeiro_nome" type="text" ngModel></ion-input>
-      <!-- 'name' define o nome do campo e 'ngModel' é usado para vincular o valor ao formulário -->
-    </ion-item>
+    <h1>Registre-se</h1>
+
+    <p>Digite seu nome:</p>
+    <ion-input name="primeiro_nome" type="text" placeholder="   Nome" ngModel></ion-input>
+    <!-- 'name' define o nome do campo e 'ngModel' é usado para vincular o valor ao formulário -->
+    <p>Digite seu sobrenome:</p>
+    <ion-input name="segundo_nome" type="text" placeholder="   Sobrenome" ngModel></ion-input>
     
-    <ion-item>
-      <!-- Campo para inserir o sobrenome do usuário -->
-      <ion-label position="floating">Sobrenome</ion-label>
-      <ion-input name="segundo_nome" type="text" ngModel></ion-input>
-    </ion-item>
+    <p>Digite seu e-mail:</p>
+    <ion-input name="email" type="email" placeholder="   E-mail" ngModel></ion-input>
     
-    <ion-item>
-      <!-- Campo para inserir o email do usuário -->
-      <ion-label position="floating">Email</ion-label>
-      <ion-input name="email" type="email" ngModel></ion-input>
-    </ion-item>
-    
-    <ion-item>
-      <!-- Campo para inserir a senha do usuário -->
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input name="senha" type="password" ngModel></ion-input>
-    </ion-item>
+    <p>Digite sua senha:</p>
+    <ion-input name="senha" type="password" placeholder="   Senha" ngModel></ion-input>
 
     <!-- Botão para enviar o formulário -->
-    <ion-button fill="outline" expand="block" type="submit">Registrar</ion-button>
+    <ion-button color="shade" expand="block" type="submit">Registrar</ion-button>
   </form>
 
   <!-- Link para redirecionar o usuário para a página de login caso já tenha uma conta -->

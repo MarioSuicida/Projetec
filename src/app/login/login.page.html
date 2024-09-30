@@ -1,33 +1,31 @@
-<ion-header>
-  <!-- Cabeçalho da página -->
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <!-- Botão de voltar, que navega para a página definida em defaultHref quando clicado -->
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <!-- Título da página -->
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+
+<ion-content id="content" >
+
+<ion-back-button defaultHref="/home"></ion-back-button>
+<h1 id="login">Login</h1>
+  
+<p id="bemvindo">Bem vindo de volta!</p>
+  
   <!-- Formulário de login -->
   <form #form="ngForm" (ngSubmit)="onLogin(form)">
-    <!-- Campo de entrada para o email -->
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
+
+    <p>Digite seu e-mail:</p>
+
       <!-- Campo de entrada do tipo email, com validação obrigatória e vinculação bidirecional usando ngModel -->
-      <ion-input type="email" name="email" ngModel required></ion-input>
-    </ion-item>
-    <!-- Campo de entrada para a senha -->
-    <ion-item>
-      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="email" placeholder="    E-mail" class="input"shape="round" name="email" ngModel required ></ion-input>
+
+    <p>Digite sua senha:</p>
+
       <!-- Campo de entrada do tipo senha, com validação obrigatória e vinculação bidirecional usando ngModel -->
-      <ion-input type="password" name="senha" ngModel required></ion-input>
-    </ion-item>
+      <ion-input type="password" placeholder="    Senha" class="input" name="senha" ngModel required></ion-input>
+
     <!-- Botão para enviar o formulário -->
-    <ion-button expand="full" type="submit">Login</ion-button>
+    <ion-button color="shade" id="botaologin" expand="block" type="submit" >Acessar</ion-button>
   </form>
+
+  
+
 
   <!-- Mensagens de sucesso e erro -->
   <div *ngIf="mensagemLogin" class="mensagem-sucesso">
@@ -41,6 +39,7 @@
   </div>
 
   <!-- Link para a página de registro -->
-  <p>Não tem uma conta? Faça o cadastro <a (click)="showRegistro()">Aqui</a></p>
+  <p id="contta" >Não tem uma conta? Faça o cadastro <a (click)="showRegistro()" id="aqui">Aqui</a></p>
 </ion-content>
+
 
