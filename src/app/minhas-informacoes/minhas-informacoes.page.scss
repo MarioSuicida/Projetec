@@ -1,0 +1,8 @@
+.zancaneli{
+    box-shadow: none;
+    --box-shadow: none; /* Para lidar com variações de estilo específicas do Ionic /
+    border: none;
+    --background: transparent; / Se quiser remover o fundo /
+    --background-activated: transparent; / Remove o fundo ao clicar /
+    --background-focused: transparent; / Remove o fundo ao focar */
+}
