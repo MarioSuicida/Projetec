@@ -64,6 +64,10 @@ export class TelaPrincipalPage implements OnInit {
     this.navCtrl.navigateForward('/perfil')
   }
 
+  showPlanejamento(){
+    this.navCtrl.navigateForward('/planejamento')
+  }
+
   ngOnInit() {
     const userData = localStorage.getItem('user');
     if (userData) {
