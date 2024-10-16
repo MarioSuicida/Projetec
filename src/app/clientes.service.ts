@@ -18,6 +18,11 @@ export interface UsuarioUpdate {
 }
 
 export interface transacao {
+  [x: string]: any;
+  novaCategoriaGasto: any;
+  novaCategoriaRenda: any;
+  categoriaGasto: any;
+  categoriaRenda: any;
   ID: string; // Identificador único da transação.
   ID_usuario: string; // Identificador do usuário associado à transação.
   valor: string; // Valor da transação.
@@ -30,6 +35,9 @@ export interface transacao {
 }
 
 export interface planejamento_mensal {
+  data: any;
+  novaCategoriaGasto: any;
+  categoriaGasto: any;
   ID: string; // Identificador único do planejamento.
   ID_usuario: string; // Identificador do usuário associado ao planejamento.
   meta_de_despesas: string; // Meta de despesas para o mês.
@@ -49,11 +57,15 @@ export interface categorias {
 @Injectable({
   providedIn: 'root' // Indica que o serviço pode ser injetado em qualquer parte da aplicação.
 })
-
 export class usuariosService {
-  private url = "https://api-production-be82.up.railway.app"; // URL base da API.
+  private url = "http://localhost"; // URL base da API.
 
   constructor(private http: HttpClient) { } // Injeta HttpClient para realizar requisições HTTP.
+
+  // Método genérico para listar todos os registros de uma tabela.
+  listar<T>(tabela: string): Observable<T[]> {
+    return this.http.get<T[]>(`${this.url}/${tabela}`); // Faz uma requisição GET para a tabela especificada.
+  }
 
   // Método genérico para obter todos os registros de uma tabela com base em uma coluna e valor específicos.
   getAll<T>(tabela: string, coluna: string, valor: string): Observable<T[]> {
@@ -67,7 +79,7 @@ export class usuariosService {
 
   // Método genérico para criar um novo registro em uma tabela.
   criar<T>(tabela: string, dados: any): Observable<T> {
-    return this.http.post<T>(`${this.url}/${tabela}`, dados);
+    return this.http.post<T>(`${this.url}/${tabela}`, dados);  // Ex.: 'transacao' ou 'transacoes'
   }
 
   // Método genérico para atualizar um registro existente em uma tabela com base em uma coluna e valor específicos.
@@ -84,5 +96,11 @@ export class usuariosService {
   atualizarUsuario(userId: string, dados: UsuarioUpdate): Observable<UsuarioUpdate> {
     return this.http.put<UsuarioUpdate>(`${this.url}/usuarios/ID/${userId}`, dados);
   }
-}
 
+  // Método para obter os gastos de um usuário específico.
+  getGastos(ID_usuario: string): Observable<transacao[]> {
+    return this.http.get<transacao[]>(`${this.url}/transacao`, {
+      params: { ID_usuario, tipo: 'gasto' } // Filtra somente transações do tipo "gasto"
+    });
+  }
+}
