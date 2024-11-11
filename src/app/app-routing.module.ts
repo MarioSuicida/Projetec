@@ -31,6 +31,7 @@ const routes: Routes = [
     path: 'recursos',
     loadChildren: () => import('./recursos/recursos.module').then( m => m.RecursosPageModule)
   },
+
   {
     path: 'renda',
     loadChildren: () => import('./renda/renda.module').then( m => m.RendaPageModule)
@@ -42,6 +43,26 @@ const routes: Routes = [
   {
     path: 'minhas-informacoes',
     loadChildren: () => import('./minhas-informacoes/minhas-informacoes.module').then( m => m.MinhasInformacoesPageModule)
+  },
+  {
+    path: 'salvatransacao',
+    loadChildren: () => import('./salvatransacao/salvatransacao.module').then( m => m.SalvatransacaoPageModule)
+  },
+  {
+    path: 'planejamento',
+    loadChildren: () => import('./planejamento/planejamento.module').then( m => m.PlanejamentoPageModule)
+  },
+  {
+    path: 'salvaplanejamento',
+    loadChildren: () => import('./salvaplanejamento/salvaplanejamento.module').then( m => m.SalvaplanejamentoPageModule)
+  },
+  {
+    path: 'editatransacao',
+    loadChildren: () => import('./editatransacao/editatransacao.module').then( m => m.EditatransacaoPageModule)
+  },
+  {
+    path: 'editaplanejamento/:id',
+    loadChildren: () => import('./editaplanejamento/editaplanejamento.module').then(m => m.EditaplanejamentoPageModule)
   },
 
 

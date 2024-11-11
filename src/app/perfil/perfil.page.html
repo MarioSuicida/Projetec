@@ -1,40 +1,36 @@
-<ion-header class="honey"  [translucent]="true">
+<ion-header [translucent]="true">
   <!-- Cabeçalho da página com fundo translúcido -->
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <!-- Botão de voltar para a página anterior ou para a página inicial se nenhuma página anterior estiver disponível -->
       <ion-back-button defaultHref="/tela-principal"></ion-back-button>
     </ion-buttons>
-
-    <ion-title>Perfil</ion-title> <!-- Título da página -->
+    
+    <ion-title>perfil</ion-title> <!-- Título da página -->
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" color="primary">
+<ion-content [fullscreen]="true">
   <!-- Conteúdo principal da página, ocupando toda a tela -->
-    <div class="cariani">
-      <img src="assets/icon/IconePerfil.png" alt="">
   <ion-label>
     <!-- Exibe o nome e sobrenome do usuário -->
-    {{user?.primeiro_nome}} {{user?.segundo_nome}} <br>
+    {{user?.primeiro_nome}} {{user?.segundo_nome}} <br>   
     <!-- Se for mudar, mantenha {{user?.primeiro_nome}} e {{user?.segundo_nome}}, isso mostra o nome e sobrenome -->
 
-    <small>{{user?.email}}</small>
+    <small>{{user?.email}}</small> 
     <!-- Se for mudar, mantenha {{user?.email}}, isso mostra o email do usuário -->
   </ion-label>
-  </div>
-  <div class="juliao">
+
+  <div>
     <!-- Botão para acessar a página de informações do usuário -->
-    <ion-buttons>
-      <img src="assets\icon\Meu_Cadastro.png" alt="">
+    <ion-buttons>  
       <ion-button (click)="showMinhasInfo()">
         Meu Cadastro
       </ion-button>
     </ion-buttons>
 
     <!-- Botão para encerrar a sessão do usuário -->
-    <ion-buttons>
-      <img src="assets\icon\EncerrarSessao.png" alt="">
+    <ion-buttons>  
       <ion-button>
         Encerrar sessão
       </ion-button>
@@ -42,3 +38,4 @@
 
   </div>
 </ion-content>
+
