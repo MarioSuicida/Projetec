@@ -1,0 +1,148 @@
+.ion-icon-logo{
+    position: relative;
+    padding: 0%;
+    width: 40px;
+    height: 30px;
+
+
+}
+
+.ion-padding{
+    color: white;
+}
+
+.menu-way{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #20638c;
+}
+
+.ion-icon-perfil{
+    position: relative;
+    height: 20vh;
+    width: 30vw;
+    padding: 0px;
+}
+
+.menu-buttons{
+    color: white;
+    background-color: #20638c;
+}
+
+
+.ion-text-center{
+    font-weight: bolder;
+    color: white;
+    padding: 0%;
+    font-size: 22px;
+    margin: 0%;
+}
+
+
+.ion-arrowMonthsRight{
+    font-size: 45px;
+    padding: 0%;
+    color: white;
+}
+
+
+.ion-arrowMonthsLeft{
+    font-size: 45px;
+    padding: 0%;
+    color: white;
+}
+
+
+.button_menu{
+    color: white;
+    font-size: 45px;
+}
+
+
+.list-config{
+    position: relative;
+    height: 100%;
+    padding: 0%;
+}
+
+
+.ion-header-config{
+    position: relative;
+
+}
+
+
+.button-ion{
+    position: relative;
+    margin: 0%;
+    left: 0%;
+    background-color: transparent;
+}
+
+
+
+
+
+
+.teste-config{
+    position: relative;
+    padding-top: 11%;
+    padding-bottom: 10%;
+    margin: 0%;
+    color: white;
+    font-size: 1.7em;
+}
+
+
+.bot-sair{
+    padding: 5px;
+    left: 0%;
+}
+
+
+.nsei{
+    position: relative;
+
+}
+
+
+
+
+
+
+ion-button {
+    box-shadow: none;
+    --box-shadow: none; /* Para lidar com variações de estilo específicas do Ionic */
+    border: none;
+    --background: transparent; /* Se quiser remover o fundo */
+    --background-activated: transparent; /* Remove o fundo ao clicar */
+    --background-focused: transparent; /* Remove o fundo ao focar */
+}
+
+
+
+
+
+
+ion-header{
+    box-shadow: none;
+    --box-shadow: none; /* Para lidar com variações de estilo específicas do Ionic */
+    border: none;
+    --background: transparent; /* Se quiser remover o fundo */
+    --background-activated: transparent; /* Remove o fundo ao clicar */
+    --background-focused: transparent; /* Remove o fundo ao focar */
+}
+
+
+
+
+
+
+.buttons_config{
+    margin-left: 5%;
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid black;
+    padding: 15px;
+
+}

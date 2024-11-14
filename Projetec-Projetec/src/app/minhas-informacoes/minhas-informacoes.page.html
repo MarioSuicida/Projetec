@@ -1,0 +1,39 @@
+<ion-header class="zancaneli" [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!-- Botão de voltar, que redireciona para a página 'tela-principal' -->
+      <ion-back-button defaultHref="/tela-principal"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Minhas Informacoes</ion-title> <!-- Título da página -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <!-- Formulário que será enviado ao clicar no botão 'Salvar Alterações' -->
+  <form (ngSubmit)="onSubmit()">
+    <!-- Campo para o primeiro nome do usuário -->
+    <ion-item color="primary">
+      <ion-label position="floating">Nome : </ion-label>
+      <!-- O valor do input é vinculado à propriedade 'userFirstName' no componente -->
+      <ion-input type="text" [(ngModel)]="userFirstName" name="firstName"></ion-input>
+    </ion-item>
+
+    <!-- Campo para o sobrenome do usuário -->
+    <ion-item color="primary">
+      <ion-label position="floating">Sobrenome : </ion-label>
+      <!-- O valor do input é vinculado à propriedade 'userLastName' no componente -->
+      <ion-input type="text" [(ngModel)]="userLastName" name="lastName"></ion-input>
+    </ion-item>
+
+    <!-- Campo para o email do usuário -->
+    <ion-item color="primary">
+      <ion-label position="floating">Email : </ion-label>
+      <!-- O valor do input é vinculado à propriedade 'userEmail' no componente -->
+      <ion-input type="email" [(ngModel)]="userEmail" name="email"></ion-input>
+    </ion-item>
+
+    <!-- Botão de submissão para salvar as alterações -->
+    <ion-button expand="full" type="submit">Salvar Alterações</ion-button>
+  </form>
+</ion-content>
+

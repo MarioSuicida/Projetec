@@ -1,0 +1,97 @@
+<!----------------------------------PARTE DO MENU ------------------------------------------->
+<ion-menu color="light" contentId="main-content">
+  <ion-header style="border-bottom: 4px solid white;">
+    <ion-buttons style="background-color: #20638c;" (click)="showPerfil()" slot="start">
+      <!-- O ICON E O LABEL SÃO UM ÚNICO BOTÃO -->
+      <ion-button color="light">
+        <ion-icon class="ion-icon-perfil" color="light" name="person-circle-outline"></ion-icon>
+        <ion-label>
+          {{user?.primeiro_nome}} {{user?.segundo_nome}} <br> <!--Mostra o nome do usuario-->
+        </ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-header>
+
+  <ion-content color="primary" class="ion-padding">
+    <!-- ESSE ION PADDING VAI "CENTRALIZAR O CONTEÚDO DO MENU" -->
+    <ion-list class="menu-way">
+      <ion-button class="menu-buttons" (click)="showRecursos()"> <!--VAI PARA A PÁGINA DOS RECURSOS-->
+        <ion-icon color="light" slot="start" name="star"></ion-icon>
+        Recursos Premium
+      </ion-button>
+
+      <ion-button class="menu-buttons" (click)="showRenda()">
+        <ion-icon color="light" slot="start" name="wallet"></ion-icon>
+        Transações
+      </ion-button>
+
+      <ion-button class="menu-buttons"  (click)="showPlanejamento()">
+        <ion-icon color="light" slot="start" name="cash"></ion-icon>
+        Planejamento
+      </ion-button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!------------------------------------CONTEÚDO PRINCIPAL ------------------------------->
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+        <ion-menu-button class="button_menu"></ion-menu-button>
+        <ion-button (click)="anteriorMes()">
+          <ion-icon class="ion-arrowMonthsLeft" name="arrow-back-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-title class="ion-text-center"> <!-- Exibe o mês atual -->
+        {{ mudancasMes }}
+      </ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="proximoMes()">
+          <ion-icon class="ion-arrowMonthsRight" name="arrow-forward-circle-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button (click)="openConfigMenu()" id="configuracoes" color="light">
+          <!-- ABRE O MENU DE CONFIGURAÇÕES -->
+          <ion-icon class="ion-icon-logo" name="logo-bitcoin"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding" color="primary">
+    <!-- AQUI VAI FICAR O CONTEÚDO DA PÁGINA INICIAL -->
+
+    <!-------------------------------------MENU CONFIGURAÇÕES-------------------------->
+    <ion-menu contentId="main-content" menuId="config-menu" side="end" >
+      <!-- 'config-menu' é o ID do menu lateral -->
+      <ion-header color="primary" class="ion-header-config">
+        <ion-toolbar color="primary" style="padding-bottom: 50px; margin-bottom: -2px;">
+          <ion-buttons class="bot-sair" slot="start">
+            <ion-button (click)="fechaMenuConf()"> <!-- FAZ O MENU FECHAR -->
+              <ion-icon color="light" slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title class="teste-config">Configurações</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <!-- CONTEÚDO DENTRO DO MENU -->
+        <ion-list class="list-config" style="background-color: #20638c;">
+          <ion-button class="buttons_config">
+            <ion-icon slot="start" name="star"></ion-icon>
+            Central de Ajuda
+          </ion-button>
+
+          <ion-button class="buttons_config" style="border: none;">
+            <ion-icon slot="start" name="wallet"></ion-icon>
+            Política de Privacidade
+          </ion-button>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+  </ion-content>
+</div>

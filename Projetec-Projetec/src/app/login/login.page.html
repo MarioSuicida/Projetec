@@ -1,0 +1,45 @@
+
+
+<ion-content id="content" >
+
+<ion-back-button defaultHref="/home"></ion-back-button>
+<h1 id="login">Login</h1>
+  
+<p id="bemvindo">Bem vindo de volta!</p>
+  
+  <!-- Formulário de login -->
+  <form #form="ngForm" (ngSubmit)="onLogin(form)">
+
+    <p>Digite seu e-mail:</p>
+
+      <!-- Campo de entrada do tipo email, com validação obrigatória e vinculação bidirecional usando ngModel -->
+      <ion-input type="email" placeholder="    E-mail" class="input"shape="round" name="email" ngModel required ></ion-input>
+
+    <p>Digite sua senha:</p>
+
+      <!-- Campo de entrada do tipo senha, com validação obrigatória e vinculação bidirecional usando ngModel -->
+      <ion-input type="password" placeholder="    Senha" class="input" name="senha" ngModel required></ion-input>
+
+    <!-- Botão para enviar o formulário -->
+    <ion-button color="shade" id="botaologin" expand="block" type="submit" >Acessar</ion-button>
+  </form>
+
+  
+
+
+  <!-- Mensagens de sucesso e erro -->
+  <div *ngIf="mensagemLogin" class="mensagem-sucesso">
+    <!-- Mensagem de sucesso, exibida se a variável mensagemLogin estiver definida -->
+    {{mensagemLogin}} <!-- Elas não estão aparecendo ... depois resolvo isso -->
+  </div>
+
+  <div *ngIf="mensagemErro" class="mensagem-erro">
+    <!-- Mensagem de erro, exibida se a variável mensagemErro estiver definida -->
+    {{mensagemErro}}
+  </div>
+
+  <!-- Link para a página de registro -->
+  <p id="contta" >Não tem uma conta? Faça o cadastro <a (click)="showRegistro()" id="aqui">Aqui</a></p>
+</ion-content>
+
+

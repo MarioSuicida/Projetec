@@ -1,0 +1,41 @@
+<ion-header [translucent]="true" class="honey">
+  <!-- Cabeçalho da página com fundo translúcido -->
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!-- Botão de voltar para a página anterior ou para a página inicial se nenhuma página anterior estiver disponível -->
+      <ion-back-button defaultHref="/tela-principal"></ion-back-button>
+    </ion-buttons>
+    
+    <ion-title>Perfil</ion-title> <!-- Título da página -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="primary">
+  <!-- Conteúdo principal da página, ocupando toda a tela -->
+  <div class="cariani">
+    <img src="assets/icon/IconePerfil.png" alt="">
+    <ion-label>
+      <!-- Exibe o nome e sobrenome do usuário -->
+      {{user?.primeiro_nome}} {{user?.segundo_nome}} <br>
+      <small>{{user?.email}}</small>
+    </ion-label>
+  </div>
+
+  <div class="juliao">
+    <!-- Botão para acessar a página de informações do usuário -->
+    <ion-buttons>
+      <img src="assets/icon/Meu_Cadastro.png" alt="">
+      <ion-button (click)="showMinhasInfo()">
+        Meu Cadastro
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Botão para encerrar a sessão do usuário -->
+    <ion-buttons>
+      <img src="assets/icon/EncerrarSessao.png" alt="">
+      <ion-button>
+        Encerrar sessão
+      </ion-button>
+    </ion-buttons>
+  </div>
+</ion-content>
