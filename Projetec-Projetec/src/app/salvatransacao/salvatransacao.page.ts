@@ -48,7 +48,7 @@ export class SalvatransacaoPage {
       this.transacao.ID_usuario = usuarioLogado.ID;
     } else {
       console.error('Usuário não encontrado no localStorage');
-      this.navCtrl.navigateBack('login');
+      this.navCtrl.navigateBack('login'); // volta com o "login"
     }
   }
 
