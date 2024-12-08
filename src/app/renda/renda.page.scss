@@ -1,0 +1,39 @@
+* {
+	--ion-color-primary: #2881B8;
+	--ion-color-secondary: #20638C;
+	--ion-color-tertiary: #1A4C6B;
+	--ion-color-danger: #c5000f;
+    --ion-color-shade: #f5f4f4;
+    margin: 0%;
+    
+}ion-content {
+    --background: #20638c;
+}
+
+html{
+    overflow: hidden;
+}
+
+ion-toolbar{
+    color:white;
+}
+
+ion-fab-button{
+    --color: white;
+    --background: #012840;
+}
+
+ion-toolbar {
+    --box-shadow: none; 
+    background-color:  #2881B8;
+
+}
+
+ion-header{
+    box-shadow: none;
+    --box-shadow: none; 
+    border: none;
+    --background: transparent; 
+    --background-activated: transparent; 
+    --background-focused: transparent;
+}

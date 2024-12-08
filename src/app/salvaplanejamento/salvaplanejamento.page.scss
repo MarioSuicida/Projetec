@@ -1,0 +1,36 @@
+* {
+	--ion-color-primary: #2881B8;
+	--ion-color-secondary: #20638C;
+	--ion-color-tertiary: #1A4C6B;
+	--ion-color-danger: #c5000f;
+    --ion-color-shade: #f5f4f4;
+    margin: 0%;
+    
+}ion-content {
+    --background: #20638c;
+}
+
+html{
+    overflow: hidden;
+}
+
+ion-toolbar{
+    color: white;
+}
+
+ion-datetime{
+    transform: scale(0.8);
+    background-color: #1A4C6B;
+    margin-left: 18%;
+}
+
+ion-button{
+    --color: #f5f4f4;
+    --background: #012840;
+
+}
+
+ion-label{
+    --color:#f5f4f4;
+    --background:#012840;
+}

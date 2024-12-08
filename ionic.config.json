@@ -1,0 +1,7 @@
+{
+  "name": "Projetec2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-buttons slot="start">
+      <ion-button (click)="voltar()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Salvar Planejamento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="enviar(form)">
+    <ion-item color="secondary">
+      <ion-label position="floating" color="light">Meta de Despesas</ion-label>
+      <ion-input type="number" #metainput [(ngModel)]="planejamento.meta_de_despesas" name="meta_de_despesas" required min="1"inputmode="decimal"></ion-input>
+    </ion-item>
+
+    <ion-item color="secondary">
+      <ion-label color="light">Categorias de Gastos</ion-label>
+      <div>
+        <ion-chip 
+          *ngFor="let categoria of categoriasGastos" 
+          [color]="categoriaSelecionada === categoria ? 'primary' : 'medium'" 
+          (click)="selecionarCategoriaGasto(categoria)" color="medium">
+          <ion-label color="light">{{ categoria }}</ion-label>
+        </ion-chip>
+        
+        <ion-chip 
+          [color]="categoriaSelecionada === 'outros' ? 'primary' : 'medium'" 
+          (click)="selecionarCategoriaGasto('outros')">
+          <ion-label color="light">Outros</ion-label>
+        </ion-chip>
+      </div>
+    </ion-item >
+    
+    
+    <ion-item color="secondary" *ngIf="gastosFiltrados.length > 0">
+      <ion-label>Gastos</ion-label>
+      <div>
+        <ion-chip 
+          *ngFor="let gasto of gastosFiltrados" 
+          [color]="gastosSelecionados.includes(gasto.valor) ? 'primary' : 'medium'" 
+          (click)="toggleGasto(gasto.valor)">
+          <ion-label>{{ gasto.categoria }} - {{ gasto.valor }}</ion-label>
+        </ion-chip>
+      </div>
+    </ion-item >
+    
+    <ion-item color="secondary" *ngIf="gastosFiltrados.length === 0">
+      <ion-label color="light">Nenhum gasto disponível para esta categoria.</ion-label>
+    </ion-item>
+    
+    
+    
+    <ion-item color="secondary">
+      <ion-label position="floating"color="light">Mês e Ano</ion-label>
+      <ion-datetime color="light"
+        [(ngModel)]="dataSelecionada" 
+        name="data" 
+        display-format="MM/YYYY" 
+        picker-format="MM YYYY" 
+        presentation="month-year" 
+        (ionChange)="dataMudou($event)" 
+        required>
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item color="secondary">
+      <ion-label color="light">Nomeie o Planejamento</ion-label>
+      <div>
+        <ion-chip *ngFor="let categoria of categorias" (click)="selecionarCategoria(categoria)" [color]="planejamento.categoria === categoria ? 'primary' : 'medium'" outline="true">
+          <ion-label color="light">{{ categoria }}</ion-label>
+        </ion-chip>
+        <ion-chip (click)="selecionarCategoria('outras')" [color]="planejamento.categoria === 'outras' ? 'primary' : 'medium'" outline="true">
+          <ion-label color="light">Personalizado...</ion-label>
+        </ion-chip>
+      </div>
+    </ion-item>
+    
+    <ion-item *ngIf="mostrarCampoCategoriaGasto" color="primary">
+      <ion-label position="floating">Novo nome do Planejamento</ion-label>
+      <ion-input [(ngModel)]="novaCategoriaGasto" name="novaCategoriaGasto"></ion-input>
+    </ion-item>
+    
+
+    <ion-item color="secondary">
+      <ion-label color="light">Recorrente?</ion-label>
+      <div>
+        <ion-chip  (click)="selecionarRecorrente('sim')" [color]="planejamento.recorrente === 'sim' ? 'primary' : 'medium'" outline="true">
+          <ion-label color="light">Sim</ion-label>
+        </ion-chip>
+        <ion-chip (click)="selecionarRecorrente('não')" [color]="planejamento.recorrente === 'não' ? 'primary' : 'medium'" outline="true">
+          <ion-label color="light">Não</ion-label>
+        </ion-chip>
+      </div>
+    </ion-item>
+    
+
+    <ion-button expand="full" type="submit">Enviar</ion-button>
+  </form>
+</ion-content>

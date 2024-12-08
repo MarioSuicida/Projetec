@@ -1,0 +1,80 @@
+* {
+	--ion-color-primary: #2881B8;
+	--ion-color-secondary: #20638C;
+	--ion-color-tertiary: #1A4C6B;
+	--ion-color-danger: #c5000f;
+    --ion-color-shade: #f5f4f4;
+    margin: 0%;
+}
+
+ion-content {
+    --background: #20638c;
+    padding: 16px; /* Adiciona um espaçamento interno ao conteúdo */
+}
+
+h1 {
+    font-size: 205%;
+    font-weight: bold;
+    color: var(--ion-color-shade);
+    position: relative;
+    left: 6%;
+    margin-bottom: 10%;
+}
+
+p {
+    font-size: 85%;
+    color: #ffffffde;
+    margin: 0 0 8px 0;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    left: 6%;
+    font-size: 85%;
+    letter-spacing: 0.0295cm;
+}
+
+ion-input {
+    background-color: var(--ion-color-primary);
+    color: rgb(247, 241, 241);
+    position: relative;
+    left: 50%; 
+    transform: translateX(-50%);
+    border-radius: 15.5px; 
+    width: 88%;
+    height: 48px;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3); 
+    margin-top: 3%;
+    margin-bottom: 6%;
+}
+
+ion-button {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    color: var(--ion-color-shade);
+    background-color: var(--ion-color-tertiary);
+    font-size: 100%;
+    font-weight: bolder;
+    width: 45%;
+    height: 45px;
+    position: relative;
+    left: 50%; 
+    transform: translateX(-50%); 
+    border-radius: 5px;
+}
+
+ion-back-button {
+    width: 10%;
+    height: auto;
+}
+
+a {
+    color: #fc3a3a;
+    font-weight: bold;
+}
+
+.mensagem-erro {
+    color: red; /* Cor vermelha para destacar o erro */
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  

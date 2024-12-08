@@ -1,0 +1,163 @@
+<!----------------------------------PARTE DO MENU ------------------------------------------->
+<ion-menu color="light" contentId="main-content">
+  <ion-header style="border-bottom: 4px solid white;">
+    <ion-buttons style="background-color: #20638c;" (click)="showPerfil()" slot="start">
+      <ion-button color="light">
+        <ion-icon class="ion-icon-perfil" color="light" name="person-circle-outline"></ion-icon>
+        <ion-label>
+          {{user?.primeiro_nome}}  {{user?.segundo_nome}} <br> <!--Mostra o nome do usuario-->
+        </ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-header>
+
+  <ion-content color="primary" class="ion-padding">
+    <ion-list class="menu-way">
+      <ion-button class="menu-buttons" (click)="showRecursos()"> <!--VAI PARA A PÁGINA DOS RECURSOS-->
+        <ion-icon color="light" slot="start" name="star"></ion-icon>
+        Recursos Premium
+      </ion-button>
+
+      <ion-button class="menu-buttons" (click)="showRenda()">
+        <ion-icon color="light" slot="start" name="wallet"></ion-icon>
+        Transações
+      </ion-button>
+
+      <ion-button class="menu-buttons"  (click)="showPlanejamento()">
+        <ion-icon color="light" slot="start" name="cash"></ion-icon>
+        Planejamento
+      </ion-button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-------------------------------------MENU CONFIGURAÇÕES------------------------->
+
+<ion-menu contentId="main-content" menuId="config-menu" side="end" >
+  <!-- 'config-menu' é o ID do menu lateral -->
+  <ion-header color="primary" class="ion-header-config">
+    <ion-toolbar color="primary" style="padding-bottom: 50px; margin-bottom: -2px;">
+      <ion-buttons class="bot-sair" slot="start">
+        <ion-button (click)="fechaMenuConf()"> <!-- FAZ O MENU FECHAR -->
+          <ion-icon color="light" slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="teste-config">Configurações</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <!-- CONTEÚDO DENTRO DO MENU -->
+    <ion-list class="list-config" style="background-color: #20638c;">
+      <ion-button class="buttons_config">
+        <ion-icon slot="start" name="star"></ion-icon>
+        Central de Ajuda
+      </ion-button>
+
+      <ion-button class="buttons_config" style="border: none;">
+        <ion-icon slot="start" name="wallet"></ion-icon>
+        Política de Privacidade
+      </ion-button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+<!------------------------------------CONTEÚDO PRINCIPAL ------------------------------->
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+        <ion-menu-button class="button_menu"></ion-menu-button>
+        <ion-button (click)="anteriorMes()">
+          <ion-icon class="iconsToolbar" id="ion-arrowMonthsLeft" name="chevron-back-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-title class="ion-text-center">
+        {{ mudancasMes }}
+      </ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="proximoMes()">
+          <ion-icon   class="iconsToolbar" id="ion-arrowMonthsRight" name="chevron-forward-circle-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button (click)="openConfigMenu()" id="configuracoes" color="light">
+          <ion-icon class="iconsToolbar" name="settings-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding" color="primary">
+    <!-- Contêiner principal com o saldo e gráfico -->
+    <div class="container-principal">
+      <div class="saldo">
+        <h2>R$ {{ saldo | number:'1.2-2' }}</h2>
+      </div>
+
+      <!-- Gráfico de Renda -->
+      <div *ngIf="rendaDisponivel; else semRenda">
+        <canvas #lineChart></canvas>
+      </div>
+      <ng-template #semRenda>
+        <p>Ops! Não há dados de Renda para este mês.</p>
+      </ng-template>
+    </div>
+
+
+    <div class="saldo-container">
+      <div class="renda">
+        <img class="imgSaldo" src="assets\renda.png" alt="renda" >
+        <div class="info">
+          <p class="Texto">Renda</p>
+            <p class="renda-valor">R$ {{ totalRenda | number:'1.2-2' }}</p>
+        </div>
+      </div>
+
+      <div class="despesas">
+        
+        <div class="info">
+          <p class="Texto">Despesas</p>
+          <p class="despesas-valor">R$ {{ totalGasto | number:'1.2-2' }}</p>
+        </div>
+        <img class="imgSaldo" src="assets\gasto.png" alt="gastos">
+      </div>
+    </div>
+
+    <!-- Gráfico de Gastos -->
+    <div class="divGrafico" *ngIf="gastosDisponiveis; else semGastos">
+      <h2 class="ion-text-center" >Despesas</h2>
+      <canvas #barChart></canvas>
+    </div>
+    <ng-template #semGastos>
+      <p class="P">Ops! Não há dados de Gastos para este mês.</p>
+    </ng-template>
+
+    <div class="divGrafico" *ngIf="gastosDisponiveis; else semPizza">
+      <h2 class="ion-text-center">Despesas por Categoria</h2>
+      <canvas #pieChart></canvas>
+    </div>
+    <ng-template #semPizza>
+      <p class="P">Ops! Não há dados de Gastos por categoria para este mês.</p>
+    </ng-template>
+    
+    <ng-container *ngIf="planejamentos.length > 0; else semPlanejamento">
+      <div class="divGrafico" *ngFor="let planejamento of planejamentos; index as i">
+        <h2 class="ion-text-center">Planejamento Mensal</h2>
+        <ion-card-title>Categoria: {{ planejamento.categoria }}</ion-card-title>
+        <ion-card-content>
+          <p class="P"><strong>Planejamento: </strong>R$ {{ planejamento.gastos }} de R$ {{ planejamento.meta_de_despesas }}</p>
+          <canvas id="graficoPlanejamento{{ i }}" width="400" height="200"></canvas>
+        </ion-card-content>  
+      </div>
+    </ng-container>
+    
+    <ng-template #semPlanejamento>
+      <p class="P">Ops! Não há dados de Planejamento para este mês.</p>
+    </ng-template>
+    
+    
+  </ion-content>
+</div>

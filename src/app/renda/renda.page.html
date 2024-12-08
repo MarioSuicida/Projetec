@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar style="background-color: #2881B8;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tela-principal"></ion-back-button>
+      <ion-title>Transações</ion-title> 
+      <ion-button (click)="anteriorMes()">
+        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">
+      {{ mudancasMes }}
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="proximoMes()">
+        <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let transacao of transacoes">
+      <ion-label>
+        <h2>{{ transacao.categoria }} ({{ transacao.tipo }})</h2>
+        <p>Valor: {{ transacao.valor }} | Data: {{ transacao.dia }}/{{ transacao.mes }}/{{ transacao.ano }}</p>
+      </ion-label>
+      <ion-button color="primary" fill="clear" slot="end" (click)="editarTransacao(transacao)">
+        <ion-icon name="pencil"></ion-icon>
+      </ion-button>
+      <ion-button color="danger" fill="clear" slot="end" (click)="excluirTransacao(transacao.ID)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="irParaSalvarTransacao()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+

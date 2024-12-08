@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "https://api-production-be82.up.railway.app",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+}
+  

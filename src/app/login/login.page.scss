@@ -1,0 +1,105 @@
+* {
+	--ion-color-primary: #2881B8;
+	--ion-color-secondary: #20638C;
+	--ion-color-tertiary: #1A4C6B;
+	--ion-color-danger: #c5000f;
+    --ion-color-shade: #f5f4f4;
+    margin: 0%;
+    
+}ion-content {
+    --background: #20638c;
+}
+
+html{
+    overflow: hidden;
+}
+
+
+#bemvindo{
+    font-size: 98%;
+}
+
+#login {
+    font-size: 205%;
+    position: relative;
+    left: 6%;
+    font-weight: bold;
+    margin: 0%;
+    margin-bottom: 5%;
+    margin-top: 4%;
+
+}
+
+#bemvindo{
+    position: relative;
+    left: 6%;
+    margin: 0%;
+    
+    margin-bottom: 15%;
+
+}
+
+
+
+
+.input {
+    background-color: var(--ion-color-primary);
+    color: rgb(247, 241, 241);
+    position: relative;
+        left: 50%; 
+        transform: translateX(-50%); 
+
+    border-radius: 15.5px; 
+    width: 88%;
+    height: 48px;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3); 
+    margin-top: 5%;
+    margin-bottom: 9%;
+}
+
+#botaologin{
+    margin-top: 20%;
+    margin-bottom: 20%;
+    color:var(--ion-color-shade);
+    background-color:var(--ion-color-tertiary);
+    font-size: 100%;
+    font-weight: bolder;
+    width: 45%;
+    height: 45px;
+    position: relative;
+        left: 50%; 
+        transform: translateX(-50%); 
+    border-radius: 5px; 
+}
+
+ion-back-button{
+    width: 10%;
+    height: auto; 
+}
+#aqui{
+    font-weight: bold;
+    color: #fc3a3a;
+}
+
+
+p{
+    position: relative;
+    left: 6%;
+    font-size: 85%;
+    letter-spacing: 0.0295cm;
+    color: #ffffffde;
+    font-family: 'Poppins', sans-serif;
+}
+:root {
+    --ion-background-color: #105885;
+}
+
+.mensagem-erro {
+    color: #8e0303;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    padding: 20px;
+    border-radius: 5px; 
+    font-weight: bold;
+}
+  
