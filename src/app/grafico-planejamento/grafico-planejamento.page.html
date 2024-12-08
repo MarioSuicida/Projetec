@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gráficos de Planejamentos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let planejamento of planejamentos; index as i">
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Categoria: {{ planejamento.categoria }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong>Planejamento: </strong>R$ {{ planejamento.gastos }} de  R$ {{ planejamento.meta_de_despesas }}</p>
+            <canvas id="graficoPlanejamento{{ i }}" width="400" height="200"></canvas>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,641 @@
+.ion-icon-logo{
+    position: relative;
+    padding: 0%;
+    width: 40px;
+    height: 30px;
+
+}
+
+
+
+
+.iconsToolbar{
+    width: 40px;
+    height: 40px;
+
+}
+
+
+  
+h2{
+    color:white;
+    font-weight: 600;
+
+}
+
+.ion-padding{
+    color: white;
+}
+
+.menu-way{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #20638c;
+}
+
+.ion-icon-perfil{
+    position: relative;
+    height: 20vh;
+    width: 30vw;
+    padding: 0px;
+}
+
+.menu-buttons{
+    color: white;
+    background-color: #20638c;
+}
+
+
+.ion-text-center{
+    font-weight: bolder;
+    color: white;
+    padding: 0%;
+    font-size: 30px;
+    margin: 0%;
+}
+
+
+#ion-arrowMonthsRight{
+    font-size: 45px;
+    padding: 0%;
+    color: white;
+}
+
+
+#ion-arrowMonthsLeft{
+    font-size: 45px;
+    padding: 0%;
+    color: white;
+}
+
+
+.button_menu{
+    color: white;
+    font-size: 45px;
+}
+
+
+.list-config{
+    position: relative;
+    height: 100%;
+    padding: 0%;
+}
+
+
+.ion-header-config{
+    position: relative;
+
+}
+
+
+.button-ion{
+    position: relative;
+    margin: 0%;
+    left: 0%;
+    background-color: transparent;
+}
+
+
+
+
+
+
+.teste-config{
+    position: relative;
+    padding-top: 11%;
+    padding-bottom: 10%;
+    margin: 0%;
+    color: white;
+    font-size: 1.7em;
+}
+
+
+.bot-sair{
+    padding: 5px;
+    left: 0%;
+}
+
+
+.nsei{
+    position: relative;
+
+}
+
+
+
+
+
+
+ion-button {
+    box-shadow: none;
+    --box-shadow: none; /* Para lidar com variações de estilo específicas do Ionic */
+    border: none;
+    --background: transparent; /* Se quiser remover o fundo */
+    --background-activated: transparent; /* Remove o fundo ao clicar */
+    --background-focused: transparent; /* Remove o fundo ao focar */
+}
+
+
+
+
+
+
+ion-header{
+    box-shadow: none;
+    --box-shadow: none; /* Para lidar com variações de estilo específicas do Ionic */
+    border: none;
+    --background: transparent; /* Se quiser remover o fundo */
+    --background-activated: transparent; 
+    --background-focused: transparent;
+}
+
+
+
+
+
+
+.buttons_config{
+    margin-left: 5%;
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid black;
+    padding: 15px;
+
+}
+
+/* Remover padding do ion-content */
+ion-content {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+  }
+  
+ 
+
+  
+  
+  /* Estilo das categorias de gasto */
+  h3 {
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+  
+  div > p {
+    font-size: 1rem;
+    color:white;
+
+  }
+
+  .P{
+    color:white;
+    background-color: rgba(1, 40, 64, 1);
+    border-radius: 15px; 
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%; 
+    position: relative; 
+    left: 0; 
+  }
+
+
+
+.saldo {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 100%; 
+  }
+  
+  /* Ajuste o tamanho do h2 se necessário */
+  .saldo h2 {
+    font-size: 2rem; 
+    margin: 0;
+  }
+  
+  /* Contêiner para o cabeçalho, saldo e gráfico */
+.container-principal {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    background-color:rgba(1, 40, 64, 1); 
+    padding: 10px;
+    border-radius: 0 0 19px 19px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    margin-bottom: 35px; 
+  }
+  
+  /* Estilo para o saldo */
+  .saldo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 100%; /* Para que o saldo ocupe o máximo da largura disponível */
+    padding: 20px;
+  }
+  
+  .saldo h2 {
+    font-size: 2rem;
+    margin: 0;
+    color: white;
+  }
+  
+  /* Estilo para o gráfico */
+  .divGrafico {
+    background-color: rgba(1, 40, 64, 1);
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+  
+  canvas {
+    width: 100% !important; /* Ocupa toda a largura do contêiner */
+    height: 100% !important; 
+    max-width: 100% ;/* Limita a largura máxima */
+    max-height: 100%;
+    margin: 0 auto; /* Centraliza o gráfico */
+  }
+  
+
+  .renda, .despesas {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px; 
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+
+  
+  .valor {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .renda-valor {
+    color: #00ff00; 
+  }
+  
+ 
+
+  .saldo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(1, 40, 64, 1); /* Azul escuro */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  .saldo-container .despesas-valor{
+    color: #CB4335;
+    font-weight: bold;
+    .ion-icon-logo{
+    position: relative;
+    padding: 0%;
+    width: 40px;
+    height: 30px;
+
+}
+
+
+  
+h2{
+    color:white;
+
+}
+
+.ion-padding{
+    color: white;
+}
+
+.menu-way{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #20638c;
+}
+
+.ion-icon-perfil{
+    position: relative;
+    height: 20vh;
+    width: 30vw;
+    padding: 0px;
+}
+
+.menu-buttons{
+    color: white;
+    background-color: #20638c;
+}
+
+
+.ion-text-center{
+    font-weight: bolder;
+    color: white;
+    padding: 0%;
+    font-size: 30px;
+    margin: 0%;
+}
+
+
+.ion-arrowMonthsRight{
+    font-size: 45px;
+    padding: 0%;
+    color: white;
+}
+
+
+.ion-arrowMonthsLeft{
+    font-size: 45px;
+    padding: 0%;
+    color: white;
+}
+
+
+.button_menu{
+    color: white;
+    font-size: 45px;
+}
+
+
+.list-config{
+    position: relative;
+    height: 100%;
+    padding: 0%;
+}
+
+
+.ion-header-config{
+    position: relative;
+
+}
+
+
+.button-ion{
+    position: relative;
+    margin: 0%;
+    left: 0%;
+    background-color: transparent;
+}
+
+
+
+
+
+
+.teste-config{
+    position: relative;
+    padding-top: 11%;
+    padding-bottom: 10%;
+    margin: 0%;
+    color: white;
+    font-size: 1.7em;
+}
+
+
+.bot-sair{
+    padding: 5px;
+    left: 0%;
+}
+
+
+.nsei{
+    position: relative;
+
+}
+
+
+
+
+
+
+ion-button {
+    box-shadow: none;
+    --box-shadow: none; /* Para lidar com variações de estilo específicas do Ionic */
+    border: none;
+    --background: transparent; /* Se quiser remover o fundo */
+    --background-activated: transparent; /* Remove o fundo ao clicar */
+    --background-focused: transparent; /* Remove o fundo ao focar */
+}
+
+
+
+
+
+
+ion-header{
+    box-shadow: none;
+    --box-shadow: none; /* Para lidar com variações de estilo específicas do Ionic */
+    border: none;
+    --background: transparent; /* Se quiser remover o fundo */
+    --background-activated: transparent; 
+    --background-focused: transparent;
+}
+
+
+
+
+
+
+.buttons_config{
+    margin-left: 5%;
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid black;
+    padding: 15px;
+
+}
+
+/* Remover padding do ion-content */
+ion-content {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+  }
+  
+ 
+
+  
+  
+  /* Estilo das categorias de gasto */
+  h3 {
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+  
+  div > p {
+    font-size: 1rem;
+    color:white;
+
+  }
+
+  .P{
+    color:white;
+    background-color: rgba(1, 40, 64, 1);
+    border-radius: 15px; 
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%; 
+    position: relative; 
+    left: 0; 
+  }
+
+
+
+.saldo {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 100%; 
+  }
+  
+  /* Ajuste o tamanho do h2 se necessário */
+  .saldo h2 {
+    font-size: 2rem; 
+    margin: 0;
+  }
+  
+  /* Contêiner para o cabeçalho, saldo e gráfico */
+.container-principal {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    background-color:rgba(1, 40, 64, 1); 
+    padding: 10px;
+    border-radius: 0 0 19px 19px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    margin-bottom: 35px; 
+  }
+  
+  /* Estilo para o saldo */
+  .saldo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 100%; /* Para que o saldo ocupe o máximo da largura disponível */
+    padding: 20px;
+  }
+  
+  .saldo h2 {
+    font-size: 2rem;
+    margin: 0;
+    color: white;
+  }
+  
+  /* Estilo para o gráfico */
+  .divGrafico {
+    background-color: rgba(1, 40, 64, 1);
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
+  
+  canvas {
+    width: 100% !important; /* Ocupa toda a largura do contêiner */
+    height: 100% !important; 
+    max-width: 100% ;/* Limita a largura máxima */
+    max-height: 100%;
+    margin: 0 auto; /* Centraliza o gráfico */
+  }
+  
+
+  .renda, .despesas {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px; 
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+
+  
+  .valor {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .renda-valor {
+    color: #00ff00; 
+  }
+  
+ 
+
+}
+
+.saldo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(1, 40, 64, 1); /* Azul escuro */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    font-size: 16px;
+    height: 85;
+    margin-bottom: 35px;
+}
+  .saldo-container .despesas-valor{
+    color: #CB4335;
+    font-weight: bold;
+    margin-top: 0;
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+  .saldo-container .renda-valor{
+    color:#229954;
+    font-weight: bold;
+    margin-top: 0;
+    
+}
+
+  .Texto{
+    color:white;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+  
+.imgSaldo{
+    width: 48.31px !important;
+    height: 50px !important; 
+    margin-right: 15px;
+   
+    
+}
+
+  
+  
