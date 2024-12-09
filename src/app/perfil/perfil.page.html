@@ -1,0 +1,41 @@
+<ion-header [translucent]="true" class="honey">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tela-principal"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="primary">
+  <div class="cariani">
+    <img src="assets/icon/IconePerfil.png" alt="perfil">
+    <ion-label>
+      {{user?.primeiro_nome}} {{user?.segundo_nome}} <br>
+      <small>{{user?.email}}</small>
+    </ion-label>
+  </div>
+
+  <div class="juliao">
+    <ion-buttons>
+      <img src="assets/icon/Meu Cadastro.png" alt="">
+      <ion-button (click)="showMinhasInfo()">
+        Meu Cadastro
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons>
+      <img src="assets/icon/EncerrarSessao.png" alt="">
+      <ion-button (click)="mostrarDialogoEncerrarSessao()">Encerrar sessão</ion-button>
+    </ion-buttons>
+  </div>
+
+  <!-- Diálogo personalizado -->
+  <div class="dialog-container" *ngIf="mostrarDialogo">
+    <div class="dialog">
+      <p>Tem certeza que deseja encerrar a sessão? Você terá que fazer login novamente caso queira acessar </p>
+      <ion-button color="danger" (click)="fecharDialogo()">Cancelar</ion-button>
+      <ion-button color="primary" (click)="confirmarEncerrarSessao()">Confirmar</ion-button>
+    </div>
+  </div>
+</ion-content>

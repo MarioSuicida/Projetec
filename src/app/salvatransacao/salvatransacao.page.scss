@@ -1,0 +1,64 @@
+.form-top-valor{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.form-bottom-valor{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 2vh;
+}
+
+.button-form-enviar{
+    font: white;
+    border-radius: 10px;
+}
+
+.a {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+  
+  .a .o {
+    margin: 4px 0; 
+  }
+  
+  .renda-options {
+    text-align: center; 
+  }
+  
+  ion-chip {
+    display: block; 
+    width: auto; 
+    margin: 8px 0; 
+    justify-content: flex-start; 
+  }
+
+  ion-grid {
+    --ion-grid-padding: 0; 
+  }
+  
+  ion-row {
+    justify-content: flex-start; 
+    
+  }
+  
+  ion-col {
+    margin-bottom: 8px; 
+  }
+
+input {
+    --color: white; 
+    color: white;   
+    --placeholder-color: lightgray; 
+  }
+  
+  ion-input {
+    --color: white; 
+    color: white;   
+  }
+  
+  ion-input .input-wrapper {
+    color: white !important; 
+  }
