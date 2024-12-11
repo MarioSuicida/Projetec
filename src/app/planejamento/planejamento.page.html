@@ -20,23 +20,28 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-list>
-    <ion-item *ngFor="let planejamento of planejamentos">
+<ion-content  class="ion-padding">
+  <ion-list class="custom-list" *ngFor="let planejamento of planejamentos">
+    
       <ion-label>
-        <h2>Planejamento: {{ planejamento.categoria }}</h2>
-        <p>R$ {{ planejamento.gastos }} de R$ {{ planejamento.meta_de_despesas }} | Data: {{ planejamento.mes }}/{{ planejamento.ano }} | Recorrente: {{ planejamento.recorrente }}</p>
+        <h2 class="custom-title">Planejamento: {{ planejamento.categoria }}</h2>
+        <p class="custom-details">
+          R$ {{ planejamento.gastos }} de R$ {{ planejamento.meta_de_despesas }} | 
+          Data: {{ planejamento.mes }}/{{ planejamento.ano }} | 
+          Recorrente: {{ planejamento.recorrente }}
+        </p>
       </ion-label>
       <ion-buttons slot="end">
-        <ion-button color="primary" fill="clear" (click)="editarPlanejamento(planejamento.ID)">
+        <ion-button class="edit-button" fill="clear" color= "primary" (click)="editarPlanejamento(planejamento.ID)">
           <ion-icon name="pencil"></ion-icon>
         </ion-button>
-        <ion-button color="danger" fill="clear" (click)="excluirPlanejamento(planejamento.ID)">
+        <ion-button class="delete-button" fill="clear" color="danger" (click)="excluirPlanejamento(planejamento.ID)">
           <ion-icon name="trash"></ion-icon>
         </ion-button>
       </ion-buttons>
-    </ion-item>
+    
   </ion-list>
+  
   
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

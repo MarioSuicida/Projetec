@@ -13,6 +13,8 @@ export class EditaplanejamentoPage {
 
   @ViewChild('metaInput', { static: false }) metaInput!: IonInput; 
 
+  minDate: string = '';
+
   planejamento: planejamento_mensal = {
     ID: '',
     ID_usuario: '',
@@ -33,7 +35,7 @@ export class EditaplanejamentoPage {
   gastosSelecionados: string[] = [];
   dataSelecionada: string = '';
 
-  categoriasGastos: string[] = ['alimentacao', 'transporte', 'saude', 'lazer', 'entretenimento', 'educação'];
+  categoriasGastos: string[] = ['alimentação', 'transporte', 'saúde', 'lazer', 'entretenimento', 'educação'];
   categoriaSelecionada: string = '';
   gastosFiltrados: { valor: any; categoria: any }[] = [];
   categorias: string[] = ['Alimentação', 'Transporte', 'Saúde', 'Lazer'];
@@ -43,7 +45,11 @@ export class EditaplanejamentoPage {
     private usuarioService: usuariosService,
     private toastController: ToastController,
     private route: ActivatedRoute // Adicionando ActivatedRoute
-  ) {}
+  ) {
+
+     const today = new Date();
+    this.minDate = today.toISOString().split('T')[0];
+  }
 
   ionViewDidEnter() {
     this.metaInput.setFocus(); // Foca no campo de entrada ao abrir a página

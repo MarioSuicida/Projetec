@@ -39,7 +39,7 @@ export class LoginPage {
                 localStorage.setItem('user', JSON.stringify(loggedUser));
                 this.navCtrl.navigateForward('/tela-principal');
              } else {
-                this.mensagemErro = 'Ops , email ou senha inválidos';
+                this.mensagemErro = 'email ou senha inválidos';
                 this.mensagemLogin = '';
              }
           },

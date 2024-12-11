@@ -54,17 +54,21 @@
     
     
     <ion-item color="secondary">
-      <ion-label position="floating"color="light">Mês e Ano</ion-label>
-      <ion-datetime color="light"
+      <ion-label position="floating">Mês e Ano</ion-label>
+      <ion-datetime
+        class="custom-datetime"
         [(ngModel)]="dataSelecionada" 
         name="data" 
         display-format="MM/YYYY" 
         picker-format="MM YYYY" 
         presentation="month-year" 
+        [min]="minDate"
+        max="3050-12"
         (ionChange)="dataMudou($event)" 
         required>
       </ion-datetime>
     </ion-item>
+    
 
     <ion-item color="secondary">
       <ion-label color="light">Nomeie o Planejamento</ion-label>
