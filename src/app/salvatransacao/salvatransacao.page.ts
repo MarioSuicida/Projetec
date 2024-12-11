@@ -33,8 +33,8 @@ export class SalvatransacaoPage {
   novaCategoriaGasto: string = '';
 
   tipos: string[] = ['renda', 'gasto'];
-  categoriasRenda: string[] = ['salario', 'freelance', 'investimentos', 'dividendos', 'vendas', 'aluguel'];
-  categoriasGasto: string[] = ['alimentacao', 'transporte', 'saude', 'lazer', 'entretenimento', 'educação'];
+  categoriasRenda: string[] = ['salário', 'freelance', 'investimentos', 'dividendos', 'vendas', 'aluguel'];
+  categoriasGasto: string[] = ['alimentação', 'transporte', 'saúde', 'lazer', 'entretenimento', 'educação'];
 
   constructor(private navCtrl: NavController, private usuarioService: usuariosService, private toastController: ToastController) {}
 

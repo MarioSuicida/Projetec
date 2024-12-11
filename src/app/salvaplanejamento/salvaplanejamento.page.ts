@@ -11,6 +11,8 @@ import { NgForm } from '@angular/forms';
 export class SalvaplanejamentoPage {
   @ViewChild('metaInput', { static: false }) metaInput!: IonInput; 
 
+  minDate: string = '';
+
   planejamento: planejamento_mensal = {
     ID: this.gerarId(),
     ID_usuario: '',
@@ -31,7 +33,7 @@ export class SalvaplanejamentoPage {
   gastosSelecionados: string[] = [];
   dataSelecionada: string = '';  // Variável temporária para capturar o valor do ion-datetime
 
-  categoriasGastos: string[] = ['alimentacao', 'transporte', 'saude', 'lazer', 'entretenimento', 'educação'];
+  categoriasGastos: string[] = ['alimentação', 'transporte', 'saúde', 'lazer', 'entretenimento', 'educação'];
   categoriaSelecionada: string = '';
   gastosFiltrados: { valor: any; categoria: any }[] = [];
 
@@ -40,12 +42,13 @@ export class SalvaplanejamentoPage {
   constructor(
     private navCtrl: NavController, 
     private usuarioService: usuariosService, 
-    private toastController: ToastController
-  ) {}
-
-  ionViewDidEnter() {
-    this.metaInput.setFocus(); // Foca no campo de entrada ao abrir a página
+    private toastController: ToastController,
+  ) {
+    const today = new Date();
+    this.minDate = today.toISOString().split('T')[0];
   }
+
+
 
 
   selecionarCategoriaGasto(categoria: string) {

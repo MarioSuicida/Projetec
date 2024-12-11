@@ -15,8 +15,8 @@ export class EditatransacaoPage implements OnInit {
 
   transacao!: transacao;
   tipos: string[] = ['renda', 'gasto'];
-  categoriasRenda: string[] = ['salario', 'freelance', 'investimentos', 'dividendos', 'vendas', 'aluguel'];
-  categoriasGasto: string[] = ['alimentacao', 'transporte', 'saude', 'lazer', 'entretenimento', 'educação'];
+  categoriasRenda: string[] = ['salário', 'freelance', 'investimentos', 'dividendos', 'vendas', 'aluguel'];
+  categoriasGasto: string[] = ['alimentação', 'transporte', 'saúde', 'lazer', 'entretenimento', 'educação'];
   mostrarCampoCategoriaRenda: boolean = false;
   mostrarCampoCategoriaGasto: boolean = false;
   novaCategoriaRenda: string = '';

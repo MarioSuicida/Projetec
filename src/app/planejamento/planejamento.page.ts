@@ -53,7 +53,7 @@ export class PlanejamentoPage implements OnInit {
     }
   
     // Obtém o mês atual com base no índice
-    const mesAtual = (this.indiceMesAtual + 1).toString().padStart(2, '0'); 
+    const mesAtual = (this.indiceMesAtual + 1).toString().padStart(1, '0'); 
   
     // Carrega os planejamentos do usuário com o ID e filtra pelo mês
     this.usuariosService.getAll<planejamento_mensal>('planejamento_mensal', 'ID_usuario', usuarioLogado.ID).subscribe(

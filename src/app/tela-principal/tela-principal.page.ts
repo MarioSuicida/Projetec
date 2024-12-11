@@ -76,7 +76,7 @@ export class TelaPrincipalPage implements OnInit, AfterViewInit {
       console.error('Usuário não encontrado ou não autenticado.');
       return;
     }
-    const mesAtual = (this.indiceMesAtual + 1).toString().padStart(2, '0');
+    const mesAtual = (this.indiceMesAtual + 1).toString().padStart(1, '0');
 
     Object.keys(this.graficos).forEach((key) => {
       if (this.graficos[key]) {
@@ -186,35 +186,41 @@ export class TelaPrincipalPage implements OnInit, AfterViewInit {
   }
   
   
-  
-carregarTransacoes() {
-  const mesAtual = (this.indiceMesAtual + 1).toString().padStart(2, '0');
-  this.usuariosService.getAll<transacao>('transacao', 'mes', mesAtual).subscribe(
-    (response) => {
-      this.transacoes = response;
-      console.log(`Transações carregadas para ${this.mudancasMes}:`, this.transacoes);
-      
-      // Calcula a renda total e o gasto total
-      this.totalRenda = this.transacoes.filter(t => t.tipo === 'renda').reduce((acc, transacao) => acc + parseFloat(transacao.valor), 0);
-      this.totalGasto = this.transacoes.filter(t => t.tipo === 'gasto').reduce((acc, transacao) => acc + parseFloat(transacao.valor), 0);
-      this.saldo = this.totalRenda - this.totalGasto;
-
-      // Atualiza o status das variáveis
-      this.rendaDisponivel = this.totalRenda > 0;
-      this.gastosDisponiveis = this.totalGasto > 0;
-
-      // Coleta categorias de gasto sem duplicatas
-      this.categoriasGasto = [...new Set(this.transacoes.filter(t => t.tipo === 'gasto').map(t => t.categoria))];
-      console.log('Categorias de Gasto:', this.categoriasGasto);
-
-      // Agora, gerar os gráficos
-      this.atualizarGraficos();
-    },
-    (error) => {
-      console.error('Erro ao carregar transações:', error);
+  carregarTransacoes() {
+    const usuarioLogado = JSON.parse(localStorage.getItem('user') || '{}');
+    if (!usuarioLogado || !usuarioLogado.ID) {
+      console.error('Usuário não encontrado ou não autenticado.');
+      return;
     }
-  );
-}
+  
+    const mesAtual = (this.indiceMesAtual + 1).toString().padStart(1, '0');
+    this.usuariosService.getAll<transacao>('transacao', 'mes', mesAtual).subscribe(
+      (response) => {
+        // Filtra as transações pelo ID do usuário
+        this.transacoes = response.filter(t => t.ID_usuario === usuarioLogado.ID);
+        console.log(`Transações carregadas para ${this.mudancasMes}:`, this.transacoes);
+        
+        // Calcula a renda total e o gasto total
+        this.totalRenda = this.transacoes.filter(t => t.tipo === 'renda').reduce((acc, transacao) => acc + parseFloat(transacao.valor), 0);
+        this.totalGasto = this.transacoes.filter(t => t.tipo === 'gasto').reduce((acc, transacao) => acc + parseFloat(transacao.valor), 0);
+        this.saldo = this.totalRenda - this.totalGasto;
+  
+        // Atualiza o status das variáveis
+        this.rendaDisponivel = this.totalRenda > 0;
+        this.gastosDisponiveis = this.totalGasto > 0;
+  
+        // Coleta categorias de gasto sem duplicatas
+        this.categoriasGasto = [...new Set(this.transacoes.filter(t => t.tipo === 'gasto').map(t => t.categoria))];
+        console.log('Categorias de Gasto:', this.categoriasGasto);
+  
+        this.atualizarGraficos();
+      },
+      (error) => {
+        console.error('Erro ao carregar transações:', error);
+      }
+    );
+  }
+  
 
 
 atualizarGraficos() {
@@ -366,7 +372,8 @@ atualizarGraficos() {
   ionViewWillEnter() {
 
     this.carregarTransacoes();
-    this.graficoCriado = false; // Força recriação dos gráficos
+    this.graficoCriado = false; 
+    this.carregarPlanejamentos();
   }
   
   get mudancasMes(): string {

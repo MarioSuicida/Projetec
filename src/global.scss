@@ -42,3 +42,19 @@ ion-header {
     --box-shadow: none; 
 
 }
+
+.custom-datetime {
+    --background: #f0f0f0; /* Fundo do componente */
+    --color: #000; /* Cor do texto */
+    --placeholder-color: #888; /* Cor do placeholder */
+    --border-color: #a91d1d; /* Cor da borda */
+    --border-radius: 8px; /* Bordas arredondadas */
+    --padding: 10px; /* Espaçamento interno */
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+  
+.custom-datetime::part(native) {
+    font-size: 16px; /* Tamanho do texto */
+    font-weight: bold; /* Negrito */
+}
+  

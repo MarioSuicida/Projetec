@@ -52,12 +52,14 @@
 
     <ion-item>
       <ion-label position="floating">Mês e Ano</ion-label>
-      <ion-datetime 
+      <ion-datetime color="light"
         [(ngModel)]="dataSelecionada" 
         name="data" 
         display-format="MM/YYYY" 
         picker-format="MM YYYY" 
         presentation="month-year" 
+        [min]="minDate"
+        max="3050-12"
         (ionChange)="dataMudou($event)" 
         required>
       </ion-datetime>
