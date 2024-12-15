@@ -1,0 +1,138 @@
+.form-top-valor{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.form-bottom-valor{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 2vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.butt{
+  font-size: 4vw;
+  padding: 0%;
+}
+
+.gastos-quadro{
+  display: flex;
+  align-self: center;
+  justify-self: center;
+
+  padding: 0%;
+}
+
+.button-form-enviar{
+    color: white;
+    border-radius: 10px;
+    background-color: rgb(1, 40, 64);
+}
+
+.a {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+  
+  .a .o {
+    margin: 4px 0; 
+  }
+  
+  .renda-options {
+    text-align: center; 
+  }
+  
+  ion-chip {
+    display: block; 
+    width: auto; 
+    margin: 8px 0; 
+    justify-content: flex-start; 
+  }
+
+  ion-grid {
+    --ion-grid-padding: 0; 
+  }
+  
+  ion-row {
+    justify-content: flex-start; 
+    
+  }
+  
+  ion-col {
+    margin-bottom: 8px; 
+  }
+
+input {
+    --color: white; 
+    color: white;   
+    --placeholder-color: lightgray; 
+  }
+  
+  ion-input {
+    --color: white; 
+    color: white;  
+    margin-top: 3vh;
+  }
+  
+  ion-input .input-wrapper {
+    color: white !important; 
+  }
+
+  .quadro-newCategoria{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+  ion-datetime {
+    --background: rgb(245, 235, 247);
+    --background-rgb: 40, 45, 201;
+    --wheel-highlight-background: rgb(173, 169, 248);
+    --wheel-highlight-border-radius: 48px;
+    --wheel-fade-background-rgb: 245, 235, 247;
+
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+  
+    border-radius: 16px;
+
+  }
+  
+  ion-datetime::part(wheel-item) {
+    color: #20638c;
+  }
+  
+  ion-datetime::part(wheel-item active) {
+    color: rgb(0, 0, 0);
+  }
+
+  ion-label {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    font-size: 18px;
+    
+  }
+
+  .vertical-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    width: 100%;
+  }
+  
+  .chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; 
+  }
+  
+  .gastos-quadro {
+    margin-top: 10px;
+  }

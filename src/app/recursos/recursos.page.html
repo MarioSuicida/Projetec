@@ -3,14 +3,48 @@
     <ion-buttons slot="start">
       <ion-back-button color="light" defaultHref="/tela-principal"></ion-back-button>
     </ion-buttons>
-    <ion-title color="light">recursos</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content class="premium-content">
+  
 
-<ion-content [fullscreen]="true" color="primary">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">recursos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <ion-card class="premium-card">
+    <ion-img src="../../assets/image 48.png" class="premium-img"></ion-img>
+    <ion-card-header>
+      <ion-card-title>Garanta agora seu PREMIUM</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="block" class="premium-button">SEJA PREMIUM</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de Benefícios -->
+  <div class="premium-benefits">
+    <h3>Por que assinar o Premium?</h3>
+    <ion-list class="benefits-list">
+      <ion-item>
+        <ion-icon name="checkmark-circle" color="success" slot="start"></ion-icon>
+        <ion-label>Gráfico de evolução anual e mensal</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="checkmark-circle" color="success" slot="start"></ion-icon>
+        <ion-label>Despesas por categoria anual e mensal</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="checkmark-circle" color="success" slot="start"></ion-icon>
+        <ion-label>Exportar arquivos por excel</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="checkmark-circle" color="success" slot="start"></ion-icon>
+        <ion-label>Planejamento Anual</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="checkmark-circle" color="success" slot="start"></ion-icon>
+        <ion-label>Meta de gastos</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
+
+

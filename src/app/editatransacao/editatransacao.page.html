@@ -1,64 +1,110 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-buttons slot="start">
       <ion-button (click)="voltar()">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        <ion-icon slot="icon-only" name="arrow-back" color="light"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Editar Transação</ion-title>
+    <ion-title color="light">Editar Transação</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" color="primary">
   <form (ngSubmit)="enviar(form)" #form="ngForm">
 
     <!-- Valor -->
-    <ion-item>
-      <ion-label position="floating">Valor</ion-label>
-      <ion-input #valorInput type="number" [(ngModel)]="transacao.valor" name="valor" required min="1" inputmode="decimal"></ion-input>
+    <ion-item color="secondary" class="form-top-valor">
+      <ion-label position="floating" color="light">Valor</ion-label>
+      <ion-input #valorInput type="number" [(ngModel)]="transacao.valor" name="valor" required min="1" inputmode="decimal" color="light"></ion-input>
     </ion-item>
 
     <!-- Tipo como Chips -->
-    <ion-item>
-      <ion-label position="stacked">Tipo</ion-label>
+    <ion-item color="secondary">
+      <ion-label position="stacked" color="light">Tipo</ion-label>
       <ion-chip *ngFor="let tipo of tipos" (click)="selecionarTipo(tipo)" [color]="transacao.tipo === tipo ? 'primary' : 'medium'" outline="true">
         <ion-label>{{ tipo }}</ion-label>
       </ion-chip>
     </ion-item>
 
     <!-- Categorias de Renda ou Gasto -->
-    <ion-item *ngIf="transacao.tipo === 'renda'">
-      <ion-label position="stacked">Categoria de Renda</ion-label>
-      <ion-chip *ngFor="let categoria of categoriasRenda" (click)="selecionarCategoriaRenda(categoria)" [color]="transacao.categoria === categoria || (transacao.categoria === 'outras' && mostrarCampoCategoriaRenda) ? 'primary' : 'medium'" outline="true">
-        <ion-label>{{ categoria }}</ion-label>
-      </ion-chip>
-      <ion-chip (click)="selecionarCategoriaRenda('outras')" [color]="transacao.categoria === 'outras' ? 'primary' : 'medium'" outline="true">
-        <ion-label>Outras</ion-label>
-      </ion-chip>
-      <ion-item *ngIf="mostrarCampoCategoriaRenda">
-        <ion-label position="floating">Nova Categoria de Renda</ion-label>
-        <ion-input [(ngModel)]="novaCategoriaRenda" name="novaCategoriaRenda" (ionFocus)="salvarCategoriaRenda()"></ion-input>
-      </ion-item>
+    <ion-item class="a" *ngIf="transacao.tipo === 'renda'" color="secondary">
+      <div class="vertical-layout">
+        <!-- Categoria de Renda Label -->
+        <ion-label class="butt" color="light" position="stacked">Categoria de Renda</ion-label>
+    
+        
+        <div class="chip-container">
+          <ion-chip 
+            *ngFor="let categoria of categoriasRenda" 
+            (click)="selecionarCategoriaRenda(categoria)" 
+            [color]="transacao.categoria === categoria || (transacao.categoria === 'outras' && mostrarCampoCategoriaRenda) ? 'primary' : 'medium'" 
+            outline="true">
+            <ion-label>{{ categoria }}</ion-label>
+          </ion-chip>
+    
+          
+          <ion-chip 
+            (click)="selecionarCategoriaRenda('outras')" 
+            [color]="transacao.categoria === 'outras' ? 'primary' : 'medium'" 
+            outline="true">
+            <ion-label>Outras</ion-label>
+          </ion-chip>
+        </div>
+    
+        
+        <ion-item *ngIf="mostrarCampoCategoriaRenda" class="gastos-quadro" color="secondary">
+          <ion-label class="butt" color="light" position="floating">Nova Categoria de Renda</ion-label>
+          <ion-input 
+            [(ngModel)]="novaCategoriaRenda" 
+            name="novaCategoriaRenda" 
+            (ionFocus)="salvarCategoriaRenda()">
+          </ion-input>
+        </ion-item>
+      </div>
     </ion-item>
 
+
+
     <!-- Categorias de Gasto -->
-    <ion-item *ngIf="transacao.tipo === 'gasto'">
-      <ion-label position="stacked">Categoria de Gasto</ion-label>
-      <ion-chip *ngFor="let categoria of categoriasGasto" (click)="selecionarCategoriaGasto(categoria)" [color]="transacao.categoria === categoria || (transacao.categoria === 'outros' && mostrarCampoCategoriaGasto) ? 'primary' : 'medium'" outline="true">
-        <ion-label>{{ categoria }}</ion-label>
-      </ion-chip>
-      <ion-chip (click)="selecionarCategoriaGasto('outros')" [color]="transacao.categoria === 'outros' ? 'primary' : 'medium'" outline="true">
-        <ion-label>Outros</ion-label>
-      </ion-chip>
-      <ion-item *ngIf="mostrarCampoCategoriaGasto">
-        <ion-label position="floating">Nova Categoria de Gasto</ion-label>
-        <ion-input [(ngModel)]="novaCategoriaGasto" name="novaCategoriaGasto" (ionBlur)="salvarCategoriaGasto()"></ion-input>
-      </ion-item>
+    <ion-item *ngIf="transacao.tipo === 'gasto'" color="secondary" class="a">
+      <div class="vertical-layout">
+        <!-- Categoria de Gasto Label -->
+        <ion-label color="light" position="stacked">Categoria de Gasto</ion-label>
+    
+        
+        <div class="chip-container">
+          <ion-chip 
+            *ngFor="let categoria of categoriasGasto" 
+            (click)="selecionarCategoriaGasto(categoria)" 
+            [color]="transacao.categoria === categoria || (transacao.categoria === 'outros' && mostrarCampoCategoriaGasto) ? 'primary' : 'medium'" 
+            outline="true">
+            <ion-label>{{ categoria }}</ion-label>
+          </ion-chip>
+          
+          
+          <ion-chip 
+            (click)="selecionarCategoriaGasto('outros')" 
+            [color]="transacao.categoria === 'outros' ? 'primary' : 'medium'" 
+            outline="true">
+            <ion-label>Outros</ion-label>
+          </ion-chip>
+        </div>
+    
+        
+        <ion-item *ngIf="mostrarCampoCategoriaGasto" class="gastos-quadro" color="secondary">
+          <ion-label class="butt" color="light" position="floating">Nova Categoria de Gasto</ion-label>
+          <ion-input 
+            [(ngModel)]="novaCategoriaGasto" 
+            name="novaCategoriaGasto" 
+            (ionBlur)="salvarCategoriaGasto()">
+          </ion-input>
+        </ion-item>
+      </div>
     </ion-item>
 
     <!-- Recorrente -->
-    <ion-item>
-      <ion-label position="stacked">Recorrente</ion-label>
+    <ion-item color="secondary">
+      <ion-label position="stacked" color="light">Recorrente</ion-label>
       <ion-chip (click)="selecionarRecorrente('sim')" [color]="transacao.recorrente === 'sim' ? 'primary' : 'medium'" outline="true">
         <ion-label>Sim</ion-label>
       </ion-chip>
@@ -68,8 +114,8 @@
     </ion-item>
 
     <!-- Data -->
-    <ion-item>
-      <ion-label position="floating">Data</ion-label>
+    <ion-item color="secondary" class="form-bottom-valor">
+      <ion-label color="light" position="floating">Data</ion-label>
       <ion-datetime
         presentation="date"
         display-format="DD/MM/YYYY"
@@ -80,6 +126,6 @@
       </ion-datetime>
     </ion-item>
 
-    <ion-button expand="full" type="submit">Salvar Alterações</ion-button>
+    <ion-button color="secondary" expand="full" type="submit"><p style="color: white;">Salvar Alterações</p></ion-button>
   </form>
 </ion-content>

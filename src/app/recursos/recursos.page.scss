@@ -1,11 +1,67 @@
 ion-header {
     box-shadow: none;
-    --box-shadow: none; /* Para lidar com variações de estilo específicas do Ionic */
+    --box-shadow: none; 
     border: none;
-    --background: transparent; /* Se quiser remover o fundo */
-    --background-activated: transparent; /* Remove o fundo ao clicar */
-    --background-focused: transparent; /* Remove o fundo ao focar */
+    --background: transparent; 
+    --background-activated: transparent; 
+    --background-focused: transparent; 
 }
+
+.premium-content {
+    --background: #00263c; 
+  }
+  
+  .premium-header {
+    --ion-background-color: #013952; 
+  }
+  
+  .premium-card {
+    background: #013952;
+    color: white;
+    border-radius: 16px;
+    margin: 16px;
+    text-align: center;
+    padding: 16px;
+  }
+  
+  .premium-img {
+    width: 80px;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  .premium-button {
+    --background: #dcdcdc; 
+    color: black;
+    margin-top: 16px;
+  }
+  
+  .premium-benefits h3 {
+    text-align: center;
+    color: white;
+    margin: 16px 0;
+  }
+  
+  .benefits-list {
+    margin: 0 16px;
+    border: 1px solid #ffffff33;
+    border-radius: 12px;
+    padding: 8px;
+    background: #013952;
+  }
+  
+  ion-item {
+    --background: transparent;
+    color: white;
+    border: 1px solid #ffffff33;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+  }
+  
+  ion-icon {
+    font-size: 24px;
+  }
 
 
 
