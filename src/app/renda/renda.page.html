@@ -1,45 +1,66 @@
 <ion-header>
-  <ion-toolbar style="background-color: #2881B8;">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tela-principal"></ion-back-button>
-      <ion-title>Transações</ion-title> 
-      <ion-button (click)="anteriorMes()">
-        <ion-icon name="arrow-back-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
 
-    <ion-title class="ion-text-center">
-      {{ mudancasMes }}
-    </ion-title>
+  <ion-toolbar color="secondary">
 
-    <ion-buttons slot="end">
-      <ion-button (click)="proximoMes()">
-        <ion-icon name="arrow-forward-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+    <div class="toolbar-fix" style="color: white;">
+
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tela-principal"></ion-back-button>
+        <ion-title class="text-transacoes">Transações</ion-title>
+      </ion-buttons>
+
+
+      <div class="month-fix">
+
+        <ion-button (click)="anteriorMes()" color="secondary">
+          <ion-icon class="arrowMonthLeftRENDA" name="arrow-back-circle-outline" color="light"></ion-icon>
+        </ion-button>
+
+        <ion-title class="ion-text-center">
+          {{ mudancasMes }}
+        </ion-title>
+
+          <ion-button (click)="proximoMes()" color="secondary">
+            <ion-icon class="arrowMonthRightRENDA" name="arrow-forward-circle-outline" color="light"></ion-icon>
+          </ion-button>
+        
+      </div>
+      
+
+    </div>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-list>
-    <ion-item *ngFor="let transacao of transacoes">
-      <ion-label>
-        <h2>{{ transacao.categoria }} ({{ transacao.tipo }})</h2>
-        <p>Valor: {{ transacao.valor }} | Data: {{ transacao.dia }}/{{ transacao.mes }}/{{ transacao.ano }}</p>
-      </ion-label>
-      <ion-button color="primary" fill="clear" slot="end" (click)="editarTransacao(transacao)">
-        <ion-icon name="pencil"></ion-icon>
-      </ion-button>
-      <ion-button color="danger" fill="clear" slot="end" (click)="excluirTransacao(transacao.ID)">
-        <ion-icon name="trash"></ion-icon>
-      </ion-button>
-    </ion-item>
-  </ion-list>
+<ion-content class="ion-padding " color="primary">
+  <div class="ion-padding ">
+    
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="irParaSalvarTransacao()">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+      <ion-item *ngFor="let transacao of transacoes" class="grid-container" color="secondary">
+        <ion-label color="light">
+          <h2 color="light">{{ transacao.categoria }} ({{ transacao.tipo }})</h2>
+          <p color="light">Valor: {{ transacao.valor }} | Data: {{ transacao.dia }}/{{ transacao.mes }}/{{ transacao.ano }}</p>
+        </ion-label>
+        <ion-button color="primary" fill="clear" slot="end" (click)="editarTransacao(transacao)">
+          <ion-icon name="pencil"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" fill="clear" slot="end" (click)="excluirTransacao(transacao.ID)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+    
+  </div>
+
+
+
+
 </ion-content>
 
+<div class="botton-more">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button (click)="irParaSalvarTransacao()" color="secondary" class="button-more-size">
+      <ion-icon color="light" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</div>

@@ -27,72 +27,88 @@
       </ion-chip>
     </ion-item>
 
+
+    
     <!-- Categorias de Renda -->
     <ion-item class="a" *ngIf="transacao.tipo === 'renda'" color="secondary">
-      <ion-label position="stacked" color="light">Categoria de Renda</ion-label>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" *ngFor="let categoria of categoriasRenda">
-            <ion-chip 
-              (click)="selecionarCategoriaRenda(categoria)" 
-              [color]="transacao.categoria === categoria || 
-                       (transacao.categoria === 'outras' && mostrarCampoCategoriaRenda) ? 'secondary' : 'medium'" 
-              outline="true">
-              <ion-label >{{ categoria }}</ion-label>
-            </ion-chip>
-          </ion-col>
-          <ion-col size="12">
-            <ion-chip 
-              (click)="selecionarCategoriaRenda('outras')" 
-              [color]="transacao.categoria === 'outras' ? 'secondary' : 'medium'" 
-              outline="true">
-              <ion-label >Outras</ion-label>
-            </ion-chip>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-item *ngIf="mostrarCampoCategoriaRenda">
-        <ion-label position="floating" color="light">Nova Categoria de Renda</ion-label>
-        <ion-input 
-          [(ngModel)]="novaCategoriaRenda" 
-          name="novaCategoriaRenda" 
-          (ionFocus)="salvarCategoriaRenda()">
-        </ion-input>
-      </ion-item>
+      <div class="vertical-layout">
+        <!-- Label da Categoria de Renda -->
+        <ion-label position="stacked" color="light">Categoria de Renda</ion-label>
+    
+        
+        <div class="chip-container">
+          <ion-chip 
+            *ngFor="let categoria of categoriasRenda" 
+            (click)="selecionarCategoriaRenda(categoria)" 
+            [color]="transacao.categoria === categoria || 
+                     (transacao.categoria === 'outras' && mostrarCampoCategoriaRenda) ? 'secondary' : 'medium'" 
+            outline="true">
+            <ion-label>{{ categoria }}</ion-label>
+          </ion-chip>
+    
+          
+          <ion-chip 
+            (click)="selecionarCategoriaRenda('outras')" 
+            [color]="transacao.categoria === 'outras' ? 'secondary' : 'medium'" 
+            outline="true">
+            <ion-label>Outras</ion-label>
+          </ion-chip>
+        </div>
+    
+       
+        <ion-item *ngIf="mostrarCampoCategoriaRenda" color="secondary" class="gastos-quadro">
+          <ion-label class="butt" position="floating" color="light">Nova Categoria de Renda</ion-label>
+          <ion-input 
+            [(ngModel)]="novaCategoriaRenda" 
+            name="novaCategoriaRenda" 
+            (ionFocus)="salvarCategoriaRenda()">
+          </ion-input>
+        </ion-item>
+      </div>
     </ion-item>
 
+
+
+
+
+
     <!-- Categorias de Gasto -->
+     
     <ion-item class="a" *ngIf="transacao.tipo === 'gasto'" color="secondary">
-      <ion-label position="stacked" color="light">Categoria de Gasto</ion-label>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12" *ngFor="let categoria of categoriasGasto">
-            <ion-chip 
-              (click)="selecionarCategoriaGasto(categoria)" 
-              [color]="transacao.categoria === categoria || 
-                       (transacao.categoria === 'outros' && mostrarCampoCategoriaGasto) ? 'secondary' : 'medium'" 
-              outline="true">
-              <ion-label >{{ categoria }}</ion-label>
-            </ion-chip>
-          </ion-col>
-          <ion-col size="12">
-            <ion-chip 
-              (click)="selecionarCategoriaGasto('outros')" 
-              [color]="transacao.categoria === 'outros' ? 'secondary' : 'medium'" 
-              outline="true">
-              <ion-label >Outros</ion-label>
-            </ion-chip>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-item *ngIf="mostrarCampoCategoriaGasto">
-        <ion-label position="floating" color="light">Nova Categoria de Gasto</ion-label>
-        <ion-input 
-          [(ngModel)]="novaCategoriaGasto" 
-          name="novaCategoriaGasto" 
-          (ionFocus)="salvarCategoriaGasto()">
-        </ion-input>
-      </ion-item>
+      <div class="vertical-layout">
+
+        <ion-label position="stacked" color="light">Categoria de Gasto</ion-label>
+    
+        
+        <div class="chip-container">
+          <ion-chip 
+            *ngFor="let categoria of categoriasGasto" 
+            (click)="selecionarCategoriaGasto(categoria)" 
+            [color]="transacao.categoria === categoria || 
+                     (transacao.categoria === 'outros' && mostrarCampoCategoriaGasto) ? 'secondary' : 'medium'" 
+            outline="true">
+            <ion-label>{{ categoria }}</ion-label>
+          </ion-chip>
+    
+          
+          <ion-chip 
+            (click)="selecionarCategoriaGasto('outros')" 
+            [color]="transacao.categoria === 'outros' ? 'secondary' : 'medium'" 
+            outline="true">
+            <ion-label>Outros</ion-label>
+          </ion-chip>
+        </div>
+    
+        
+        <ion-item *ngIf="mostrarCampoCategoriaGasto" class="gastos-quadro" color="secondary">
+          <ion-label class="butt" position="floating" color="light">Nova Categoria de Gastos</ion-label>
+          <ion-input 
+            [(ngModel)]="novaCategoriaGasto" 
+            name="novaCategoriaGasto" 
+            (ionFocus)="salvarCategoriaGasto()">
+          </ion-input>
+        </ion-item>
+      </div>
     </ion-item>
 
 <!-- Recorrente -->
@@ -111,15 +127,18 @@
     <ion-item color="secondary" class="form-bottom-valor">
       <ion-label position="floating" color="light">Data</ion-label>
       <ion-datetime 
+
         presentation="date"
         display-format="DD/MM/YYYY"
         picker-format="DD MM YYYY"
         [(ngModel)]="transacao['data']"
         name="data"
-        required>
+        required
+        >
       </ion-datetime>
     </ion-item>
 
-    <ion-button color="tertiary" class="button-form-enviar" expand="full" type="submit">Enviar</ion-button>
+    <ion-button color="secondary" class="button-form-enviar" expand="full" type="submit"><p style="color: white;">Enviar</p></ion-button>
+    
   </form>
 </ion-content>

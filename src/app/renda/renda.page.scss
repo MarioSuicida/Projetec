@@ -1,34 +1,3 @@
-* {
-	--ion-color-primary: #2881B8;
-	--ion-color-secondary: #20638C;
-	--ion-color-tertiary: #1A4C6B;
-	--ion-color-danger: #c5000f;
-    --ion-color-shade: #f5f4f4;
-    margin: 0%;
-    
-}ion-content {
-    --background: #20638c;
-}
-
-html{
-    overflow: hidden;
-}
-
-ion-toolbar{
-    color:white;
-}
-
-ion-fab-button{
-    --color: white;
-    --background: #012840;
-}
-
-ion-toolbar {
-    --box-shadow: none; 
-    background-color:  #2881B8;
-
-}
-
 ion-header{
     box-shadow: none;
     --box-shadow: none; 
@@ -37,3 +6,74 @@ ion-header{
     --background-activated: transparent; 
     --background-focused: transparent;
 }
+
+.toolbar-fix{
+    display: flex;
+    flex-direction: column;
+}
+
+.month-fix{
+    display: flex;
+    flex-direction: row;
+}
+
+ion-button {
+    box-shadow: none;
+    --box-shadow: none; /* Para lidar com variações de estilo específicas do Ionic */
+    border: none;
+    --background: transparent; /* Se quiser remover o fundo */
+    --background-activated: transparent; /* Remove o fundo ao clicar */
+    --background-focused: transparent; /* Remove o fundo ao focar */
+}
+
+.arrowMonthLeftRENDA{
+    position: relative;
+    font-size: 9vw;
+}
+
+.arrowMonthRightRENDA{
+    position: relative;
+    font-size: 9vw;
+}
+
+.ion-text-center{
+    font-size: 7vw;
+}
+
+.text-transacoes{
+    font-size: 6vw;
+}
+
+.botton-more{
+    position: fixed;
+    margin-top: 95vh;
+    margin-left: 95vw;
+}
+
+.ion-padding{
+    display: grid; 
+    grid-template-columns: 1fr; 
+    row-gap: 20px; 
+    padding: 10px; 
+    
+}
+
+.button-more-size{
+    width: 20vw; 
+    height: 12vh;
+}
+
+.grid-container {
+    position: relative;
+    padding: 10px; 
+    margin-bottom: 1vh;
+    border-radius: 40px;
+  }
+  
+  .grid-item {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px; /* Opcional, para bordas arredondadas */
+  }
