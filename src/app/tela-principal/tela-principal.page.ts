@@ -419,4 +419,11 @@ atualizarGraficos() {
   showPlanejamento() {
     this.navCtrl.navigateForward('/planejamento');
   }
+  showAjuda() {
+    this.navCtrl.navigateForward('/centralajuda');
+  }
+  showSobreNos() {
+    this.navCtrl.navigateForward('/sobrenos');
+  }
+
 }

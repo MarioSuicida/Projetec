@@ -1,3 +1,4 @@
+
 ion-header{
     box-shadow: none;
     --box-shadow: none; 
@@ -54,7 +55,7 @@ ion-button {
     display: grid; 
     grid-template-columns: 1fr; 
     row-gap: 20px; 
-    padding: 10px; 
+    padding: 0px; 
     
 }
 
@@ -66,7 +67,8 @@ ion-button {
 .grid-container {
     position: relative;
     padding: 10px; 
-    margin-bottom: 1vh;
+    margin-bottom: 2px;
+    margin-left: 0%; margin-right: 0%;
     border-radius: 40px;
   }
   
@@ -75,5 +77,5 @@ ion-button {
     color: white;
     padding: 20px;
     text-align: center;
-    border-radius: 8px; /* Opcional, para bordas arredondadas */
+    border-radius: 8px; 
   }

@@ -49,15 +49,18 @@
   <ion-content>
     <!-- CONTEÚDO DENTRO DO MENU -->
     <ion-list class="list-config" style="background-color: #20638c;">
-      <ion-button class="buttons_config">
+
+      <ion-button class="buttons_config" (click)="showAjuda()">
         <ion-icon slot="start" name="star"></ion-icon>
         Central de Ajuda
       </ion-button>
 
-      <ion-button class="buttons_config" style="border: none;">
-        <ion-icon slot="start" name="wallet"></ion-icon>
-        Política de Privacidade
+
+      <ion-button class="buttons_config" style="border: none;" (click)="showSobreNos()">
+        <ion-icon slot="start" name="people-outline"></ion-icon>
+        Sobre Nós
       </ion-button>
+
     </ion-list>
   </ion-content>
 </ion-menu>
