@@ -1,47 +1,53 @@
 <ion-header>
   <ion-toolbar color="medium">
-    <ion-buttons  slot="start">
-      <ion-back-button  defaultHref="/tela-principal"></ion-back-button> 
-    
-      <ion-button (click)="anteriorMes()">
-        <ion-icon  name="arrow-back-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
 
-    <ion-title  class="ion-text-center">
-      {{ mudancasMes }}
-    </ion-title>
+    <div class="toolbar-fix" style="color: white;">
 
-    <ion-buttons slot="end">
-      <ion-button (click)="proximoMes()">
-        <ion-icon name="arrow-forward-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tela-principal"></ion-back-button>
+        <ion-title class="text-transacoes">Planejamento</ion-title>
+      </ion-buttons>
+
+
+      <div class="month-fix">
+
+        <ion-button (click)="anteriorMes()" color="meduim">
+          <ion-icon class="arrowMonthLeftRENDA" name="arrow-back-circle-outline" color="light"></ion-icon>
+        </ion-button>
+
+        <ion-title class="ion-text-center">
+          {{ mudancasMes }}
+        </ion-title>
+
+          <ion-button (click)="proximoMes()" color="medium">
+            <ion-icon class="arrowMonthRightRENDA" name="arrow-forward-circle-outline" color="light"></ion-icon>
+          </ion-button>
+        
+      </div>
+      
+
+    </div>
+
+  </ion-toolbar>
 </ion-header>
 
-<ion-content  class="ion-padding">
-  <ion-list class="custom-list" *ngFor="let planejamento of planejamentos">
-    
-      <ion-label>
-        <h2 class="custom-title">Planejamento: {{ planejamento.categoria }}</h2>
-        <p class="custom-details">
-          R$ {{ planejamento.gastos }} de R$ {{ planejamento.meta_de_despesas }} | 
-          Data: {{ planejamento.mes }}/{{ planejamento.ano }} | 
-          Recorrente: {{ planejamento.recorrente }}
-        </p>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let planejamento of planejamentos" color="medium" class="grid-container">
+      <ion-label color="light">
+        <h2 color="light">Planejamento: {{ planejamento.categoria }}</h2>
+        <p>R$ {{ planejamento.gastos }} de R$ {{ planejamento.meta_de_despesas }} | Data: {{ planejamento.mes }}/{{ planejamento.ano }} | Recorrente: {{ planejamento.recorrente }}</p>
       </ion-label>
       <ion-buttons slot="end">
-        <ion-button class="edit-button" fill="clear" color= "primary" (click)="editarPlanejamento(planejamento.ID)">
+        <ion-button color="primary" fill="clear" (click)="editarPlanejamento(planejamento.ID)">
           <ion-icon name="pencil"></ion-icon>
         </ion-button>
-        <ion-button class="delete-button" fill="clear" color="danger" (click)="excluirPlanejamento(planejamento.ID)">
+        <ion-button color="danger" fill="clear" (click)="excluirPlanejamento(planejamento.ID)">
           <ion-icon name="trash"></ion-icon>
         </ion-button>
       </ion-buttons>
-    
+    </ion-item>
   </ion-list>
-  
   
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
@@ -49,5 +55,4 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
 </ion-content>

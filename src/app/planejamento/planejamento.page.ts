@@ -43,25 +43,10 @@ export class PlanejamentoPage implements OnInit {
   }
 
   carregarPlanejamentos() {
-    // Obtém o usuário logado do localStorage
-    const usuarioLogado = JSON.parse(localStorage.getItem('user') || '{}');
-    
-    // Verifica se o usuário está logado e possui um ID
-    if (!usuarioLogado || !usuarioLogado.ID) {
-      console.error('Usuário não encontrado ou não autenticado.');
-      return;
-    }
-  
-    // Obtém o mês atual com base no índice
-    const mesAtual = (this.indiceMesAtual + 1).toString().padStart(1, '0'); 
-  
-    // Carrega os planejamentos do usuário com o ID e filtra pelo mês
-    this.usuariosService.getAll<planejamento_mensal>('planejamento_mensal', 'ID_usuario', usuarioLogado.ID).subscribe(
-      (planejamentos: planejamento_mensal[]) => {
-        // Filtra os planejamentos para o mês atual
-        this.planejamentos = planejamentos.filter(
-          p => p.mes === mesAtual
-        );
+    const mesAtual = (this.indiceMesAtual + 1).toString().padStart(2, '0'); 
+    this.usuariosService.getAll<planejamento_mensal>('planejamento_mensal', 'mes', mesAtual).subscribe(
+      (response) => {
+        this.planejamentos = response;
         console.log(`Planejamentos carregados para ${this.mudancasMes}:`, this.planejamentos);
       },
       (error) => {
@@ -69,7 +54,6 @@ export class PlanejamentoPage implements OnInit {
       }
     );
   }
-  
 
   excluirPlanejamento(ID: string) {
     this.usuariosService.Remover<planejamento_mensal>('planejamento_mensal', 'ID', ID).subscribe(

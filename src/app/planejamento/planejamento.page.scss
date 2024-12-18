@@ -1,24 +1,87 @@
 * {
-	--ion-color-primary: #2881B8;
-	--ion-color-secondary: #20638C;
-	--ion-color-tertiary: #1A4C6B;
-	--ion-color-danger: #c5000f;
+    --ion-color-primary: #2881B8;
+    --ion-color-secondary: #20638C;
+    --ion-color-tertiary: #1A4C6B;
+    --ion-color-danger: #c5000f;
     --ion-color-shade: #f5f4f4;
     margin: 0%;
-    
-}ion-content {
+
+}
+
+ion-content {
     --background: #20638c;
 }
 
-html{
+html {
     overflow: hidden;
 }
 
-ion-toolbar{
-    color:white;
+ion-toolbar {
+    color: white;
 }
 
-ion-fab-button{
+ion-fab-button {
     --color: white;
     --background: #012840;
+}
+
+ion-list {
+    background-color: var(--ion-color-secondary);
+}
+
+.grid-container {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 2px;
+    margin-left: 0%;
+    margin-right: 0%;
+    border-radius: 40px;
+}
+
+
+.ion-text-center {
+    font-size: 7vw;
+}
+
+.month-fix {
+    display: flex;
+    flex-direction: row;
+}
+
+.arrowMonthRightRENDA{
+    position: relative;
+    font-size: 9vw;
+}
+
+.arrowMonthLeftRENDA{
+    position: relative;
+    font-size: 9vw;
+}
+
+.toolbar-fix{
+    display: flex;
+    flex-direction: column;
+}
+
+.text-transacoes{
+    font-size: 6vw;
+}
+
+.ion-padding{
+    display: grid; 
+    grid-template-columns: 1fr; 
+    row-gap: 20px; 
+    padding: 0px; 
+    
+}
+
+.botton-more{
+    position: fixed;
+    margin-top: 95vh;
+    margin-left: 95vw;
+}
+
+.button-more-size{
+    width: 20vw; 
+    height: 12vh;
 }
